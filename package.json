@@ -1,5 +1,5 @@
 {
-  "name": "@staky-io/everestswap-sdk",
+  "name": "@everestswap/sdk",
   "license": "MIT",
   "version": "0.2.1",
   "description": "🛠 An SDK for building applications on top of Everest.",
@@ -9,7 +9,7 @@
     "dist",
     "src"
   ],
-  "repository": "https://github.com/Staky-io/EverestSwap-sdk",
+  "repository": "https://github.com/EverestSwap/sdk",
   "keywords": [
     "everest",
     "swap",
