@@ -53,7 +53,7 @@ export const ETHEREUM_MAINNET: Chain = {
   name: 'Ethereum',
   symbol: 'ETH',
   mainnet: true,
-  logo: 'https://raw.githubusercontent.com/Staky-io/EverestSwap-sdk/master/src/images/chains/eth.png',
+  logo: 'https://raw.githubusercontent.com/everestswap/sdk/master/src/images/chains/eth.png',
   dex_is_live: false,
   tracked_by_debank: true,
   supported_by_gelato: true,
