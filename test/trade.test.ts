@@ -1,7 +1,7 @@
 import JSBI from 'jsbi'
 import {
   ChainId,
-  CICY,
+  CICZ,
   CurrencyAmount,
   Pair,
   Percent,
@@ -10,7 +10,7 @@ import {
   TokenAmount,
   Trade,
   TradeType,
-  WICY
+  WICZ
 } from '../src'
 
 describe('Trade', () => {
@@ -26,7 +26,7 @@ describe('Trade', () => {
   const pair_1_3 = new Pair(new TokenAmount(token1, JSBI.BigInt(1200)), new TokenAmount(token3, JSBI.BigInt(1300)), ChainId.ICE_MAINNET)
 
   const pair_weth_0 = new Pair(
-    new TokenAmount(WICY[ChainId.ICE_MAINNET], JSBI.BigInt(1000)),
+    new TokenAmount(WICZ[ChainId.ICE_MAINNET], JSBI.BigInt(1000)),
     new TokenAmount(token0, JSBI.BigInt(1000)), ChainId.ICE_MAINNET
   )
 
@@ -34,40 +34,40 @@ describe('Trade', () => {
 
   it('can be constructed with ETHER as input', () => {
     const trade = new Trade(
-      new Route([pair_weth_0], CICY[ChainId.ICE_MAINNET]),
+      new Route([pair_weth_0], CICZ[ChainId.ICE_MAINNET]),
       CurrencyAmount.ether(JSBI.BigInt(100)),
       TradeType.EXACT_INPUT
     )
-    expect(trade.inputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
+    expect(trade.inputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
     expect(trade.outputAmount.currency).toEqual(token0)
   })
   it('can be constructed with ETHER as input for exact output', () => {
     const trade = new Trade(
-      new Route([pair_weth_0], CICY[ChainId.ICE_MAINNET], token0),
+      new Route([pair_weth_0], CICZ[ChainId.ICE_MAINNET], token0),
       new TokenAmount(token0, JSBI.BigInt(100)),
       TradeType.EXACT_OUTPUT
     )
-    expect(trade.inputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
+    expect(trade.inputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
     expect(trade.outputAmount.currency).toEqual(token0)
   })
 
   it('can be constructed with ETHER as output', () => {
     const trade = new Trade(
-      new Route([pair_weth_0], token0, CICY[ChainId.ICE_MAINNET]),
+      new Route([pair_weth_0], token0, CICZ[ChainId.ICE_MAINNET]),
       CurrencyAmount.ether(JSBI.BigInt(100)),
       TradeType.EXACT_OUTPUT
     )
     expect(trade.inputAmount.currency).toEqual(token0)
-    expect(trade.outputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
+    expect(trade.outputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
   })
   it('can be constructed with ETHER as output for exact input', () => {
     const trade = new Trade(
-      new Route([pair_weth_0], token0, CICY[ChainId.ICE_MAINNET]),
+      new Route([pair_weth_0], token0, CICZ[ChainId.ICE_MAINNET]),
       new TokenAmount(token0, JSBI.BigInt(100)),
       TradeType.EXACT_INPUT
     )
     expect(trade.inputAmount.currency).toEqual(token0)
-    expect(trade.outputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
+    expect(trade.outputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
   })
 
   describe('#bestTradeExactIn', () => {
@@ -154,26 +154,26 @@ describe('Trade', () => {
         token3
       )
       expect(result).toHaveLength(2)
-      expect(result[0].inputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
-      expect(result[0].route.path).toEqual([WICY[ChainId.ICE_MAINNET], token0, token1, token3])
+      expect(result[0].inputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
+      expect(result[0].route.path).toEqual([WICZ[ChainId.ICE_MAINNET], token0, token1, token3])
       expect(result[0].outputAmount.currency).toEqual(token3)
-      expect(result[1].inputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
-      expect(result[1].route.path).toEqual([WICY[ChainId.ICE_MAINNET], token0, token3])
+      expect(result[1].inputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
+      expect(result[1].route.path).toEqual([WICZ[ChainId.ICE_MAINNET], token0, token3])
       expect(result[1].outputAmount.currency).toEqual(token3)
     })
     it('works for ETHER currency output', () => {
       const result = Trade.bestTradeExactIn(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
         new TokenAmount(token3, JSBI.BigInt(100)),
-        CICY[ChainId.ICE_MAINNET]
+        CICZ[ChainId.ICE_MAINNET]
       )
       expect(result).toHaveLength(2)
       expect(result[0].inputAmount.currency).toEqual(token3)
-      expect(result[0].route.path).toEqual([token3, token0, WICY[ChainId.ICE_MAINNET]])
-      expect(result[0].outputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
+      expect(result[0].route.path).toEqual([token3, token0, WICZ[ChainId.ICE_MAINNET]])
+      expect(result[0].outputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
       expect(result[1].inputAmount.currency).toEqual(token3)
-      expect(result[1].route.path).toEqual([token3, token1, token0, WICY[ChainId.ICE_MAINNET]])
-      expect(result[1].outputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
+      expect(result[1].route.path).toEqual([token3, token1, token0, WICZ[ChainId.ICE_MAINNET]])
+      expect(result[1].outputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
     })
   })
 
@@ -375,15 +375,15 @@ describe('Trade', () => {
     it('works for ETHER currency input', () => {
       const result = Trade.bestTradeExactOut(
         [pair_weth_0, pair_0_1, pair_0_3, pair_1_3],
-        CICY[ChainId.ICE_MAINNET],
+        CICZ[ChainId.ICE_MAINNET],
         new TokenAmount(token3, JSBI.BigInt(100))
       )
       expect(result).toHaveLength(2)
-      expect(result[0].inputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
-      expect(result[0].route.path).toEqual([WICY[ChainId.ICE_MAINNET], token0, token1, token3])
+      expect(result[0].inputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
+      expect(result[0].route.path).toEqual([WICZ[ChainId.ICE_MAINNET], token0, token1, token3])
       expect(result[0].outputAmount.currency).toEqual(token3)
-      expect(result[1].inputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
-      expect(result[1].route.path).toEqual([WICY[ChainId.ICE_MAINNET], token0, token3])
+      expect(result[1].inputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
+      expect(result[1].route.path).toEqual([WICZ[ChainId.ICE_MAINNET], token0, token3])
       expect(result[1].outputAmount.currency).toEqual(token3)
     })
     it('works for ETHER currency output', () => {
@@ -394,11 +394,11 @@ describe('Trade', () => {
       )
       expect(result).toHaveLength(2)
       expect(result[0].inputAmount.currency).toEqual(token3)
-      expect(result[0].route.path).toEqual([token3, token0, WICY[ChainId.ICE_MAINNET]])
-      expect(result[0].outputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
+      expect(result[0].route.path).toEqual([token3, token0, WICZ[ChainId.ICE_MAINNET]])
+      expect(result[0].outputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
       expect(result[1].inputAmount.currency).toEqual(token3)
-      expect(result[1].route.path).toEqual([token3, token1, token0, WICY[ChainId.ICE_MAINNET]])
-      expect(result[1].outputAmount.currency).toEqual(CICY[ChainId.ICE_MAINNET])
+      expect(result[1].route.path).toEqual([token3, token1, token0, WICZ[ChainId.ICE_MAINNET]])
+      expect(result[1].outputAmount.currency).toEqual(CICZ[ChainId.ICE_MAINNET])
     })
   })
 })

@@ -2,7 +2,7 @@ import invariant from 'tiny-invariant'
 
 import { ChainId, ONE, TradeType, ZERO } from '../constants'
 import { sortedInsert } from '../utils'
-import { Currency, CICY } from './currency'
+import { Currency, CICZ } from './currency'
 import { CurrencyAmount } from './fractions/currencyAmount'
 import { Fraction } from './fractions/fraction'
 import { Percent } from './fractions/percent'
@@ -10,7 +10,7 @@ import { Price } from './fractions/price'
 import { TokenAmount } from './fractions/tokenAmount'
 import { Pair } from './pair'
 import { Route } from './route'
-import { currencyEquals, Token, WICY } from './token'
+import { currencyEquals, Token, WICZ } from './token'
 
 /**
  * Returns the percent difference between the mid price and the execution price, i.e. price impact.
@@ -89,13 +89,13 @@ export interface BestTradeOptions {
  */
 function wrappedAmount(currencyAmount: CurrencyAmount, chainId: ChainId = ChainId.ICE_MAINNET): TokenAmount {
   if (currencyAmount instanceof TokenAmount) return currencyAmount
-  if (currencyAmount.currency === CICY[chainId]) return new TokenAmount(WICY[chainId], currencyAmount.raw)
+  if (currencyAmount.currency === CICZ[chainId]) return new TokenAmount(WICZ[chainId], currencyAmount.raw)
   invariant(false, 'CURRENCY')
 }
 
 function wrappedCurrency(currency: Currency, chainId: ChainId = ChainId.ICE_MAINNET): Token {
   if (currency instanceof Token) return currency
-  if (currency === CICY[chainId]) return WICY[chainId]
+  if (currency === CICZ[chainId]) return WICZ[chainId]
   invariant(false, 'CURRENCY')
 }
 
@@ -186,13 +186,13 @@ export class Trade {
     this.inputAmount =
       tradeType === TradeType.EXACT_INPUT
         ? amount
-        : route.input === CICY[chainId]
+        : route.input === CICZ[chainId]
         ? CurrencyAmount.ether(amounts[0].raw, chainId)
         : amounts[0]
     this.outputAmount =
       tradeType === TradeType.EXACT_OUTPUT
         ? amount
-        : route.output === CICY[chainId]
+        : route.output === CICZ[chainId]
         ? CurrencyAmount.ether(amounts[amounts.length - 1].raw, chainId)
         : amounts[amounts.length - 1]
     this.executionPrice = new Price(

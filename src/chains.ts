@@ -72,7 +72,7 @@ export const ICE_MAINNET: Chain = {
   id: 'ice_mainnet',
   chain_id: 550,
   name: 'ICE Network',
-  symbol: 'ICY',
+  symbol: 'ICZ',
   token_symbol: 'EVRS',
   mainnet: true,
   dex_is_live: false,
@@ -83,11 +83,11 @@ export const ICE_MAINNET: Chain = {
     token: contractAddresses.ICE_MAINNET.TOKEN,
     factory: contractAddresses.ICE_MAINNET.FACTORY,
     router: contractAddresses.ICE_MAINNET.ROUTER,
-    wrapped_native_token: contractAddresses.ICE_MAINNET.WICY
+    wrapped_native_token: contractAddresses.ICE_MAINNET.WICZ
   },
   nativeCurrency: {
-    name: 'ICY',
-    symbol: 'ICY',
+    name: 'ICZ',
+    symbol: 'ICZ',
     decimals: 18
   },
   blockExplorerUrls: []
@@ -97,7 +97,7 @@ export const ICE_ARCTIC: Chain = {
   id: 'ice_arctic',
   chain_id: 552,
   name: 'Arctic Testnet',
-  symbol: 'ICY',
+  symbol: 'ICZ',
   token_symbol: 'EVRS',
   mainnet: false,
   dex_is_live: true,
@@ -108,11 +108,11 @@ export const ICE_ARCTIC: Chain = {
     token: contractAddresses.ICE_ARCTIC.TOKEN,
     factory: contractAddresses.ICE_ARCTIC.FACTORY,
     router: contractAddresses.ICE_ARCTIC.ROUTER,
-    wrapped_native_token: contractAddresses.ICE_ARCTIC.WICY
+    wrapped_native_token: contractAddresses.ICE_ARCTIC.WICZ
   },
   nativeCurrency: {
-    name: 'ICY',
-    symbol: 'ICY',
+    name: 'ICZ',
+    symbol: 'ICZ',
     decimals: 18
   },
   blockExplorerUrls: ['https://arctic-blockscout.icenetwork.io']

@@ -1,4 +1,4 @@
-import { ChainId, Token, Pair, TokenAmount, WICY, Price } from '../src'
+import { ChainId, Token, Pair, TokenAmount, WICZ, Price } from '../src'
 
 describe('Pair', () => {
 
@@ -7,7 +7,7 @@ describe('Pair', () => {
 
   describe('constructor', () => {
     it('cannot be used for tokens on different chains', () => {
-      expect(() => new Pair(new TokenAmount(DAS, '100'), new TokenAmount(WICY[ChainId.ICE_MAINNET], '100'), ChainId.ICE_ARCTIC)).toThrow(
+      expect(() => new Pair(new TokenAmount(DAS, '100'), new TokenAmount(WICZ[ChainId.ICE_MAINNET], '100'), ChainId.ICE_ARCTIC)).toThrow(
         'CHAIN_IDS'
       )
     })
@@ -83,7 +83,7 @@ describe('Pair', () => {
     })
 
     it('throws if invalid token', () => {
-      expect(() => pair.priceOf(WICY[ChainId.ICE_ARCTIC])).toThrow('TOKEN')
+      expect(() => pair.priceOf(WICZ[ChainId.ICE_ARCTIC])).toThrow('TOKEN')
     })
   })
 
@@ -99,7 +99,7 @@ describe('Pair', () => {
 
     it('throws if not in the pair', () => {
       expect(() =>
-        new Pair(new TokenAmount(CON, '101'), new TokenAmount(DAS, '100'), ChainId.ICE_ARCTIC).reserveOf(WICY[ChainId.ICE_ARCTIC])
+        new Pair(new TokenAmount(CON, '101'), new TokenAmount(DAS, '100'), ChainId.ICE_ARCTIC).reserveOf(WICZ[ChainId.ICE_ARCTIC])
       ).toThrow('TOKEN')
     })
   })
@@ -114,7 +114,7 @@ describe('Pair', () => {
     expect(new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.ICE_ARCTIC).involvesToken(DAS)).toEqual(true)
     expect(new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.ICE_ARCTIC).involvesToken(CON)).toEqual(true)
     expect(
-      new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.ICE_ARCTIC).involvesToken(WICY[ChainId.ICE_ARCTIC])
+      new Pair(new TokenAmount(DAS, '100'), new TokenAmount(CON, '100'), ChainId.ICE_ARCTIC).involvesToken(WICZ[ChainId.ICE_ARCTIC])
     ).toEqual(false)
   })
 })

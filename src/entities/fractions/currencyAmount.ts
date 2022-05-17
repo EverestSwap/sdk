@@ -1,5 +1,5 @@
 import { currencyEquals } from '../token'
-import { Currency, CICY } from '../currency'
+import { Currency, CICZ } from '../currency'
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
 import _Big from 'big.js'
@@ -19,7 +19,7 @@ export class CurrencyAmount extends Fraction {
    * @param chainId
    */
   public static ether(amount: BigintIsh, chainId: ChainId = ChainId.ICE_MAINNET): CurrencyAmount {
-    return new CurrencyAmount(CICY[chainId], amount)
+    return new CurrencyAmount(CICZ[chainId], amount)
   }
 
   // amount _must_ be raw, i.e. in the native representation

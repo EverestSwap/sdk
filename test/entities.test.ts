@@ -1,5 +1,5 @@
 import invariant from 'tiny-invariant'
-import { ChainId, WICY as _WICY, TradeType, Rounding, Token, TokenAmount, Pair, Route, Trade } from '../src'
+import { ChainId, WICZ as _WICZ, TradeType, Rounding, Token, TokenAmount, Pair, Route, Trade } from '../src'
 
 const ADDRESSES = [
   '0x0000000000000000000000000000000000000001',
@@ -8,7 +8,7 @@ const ADDRESSES = [
 ]
 
 const CHAIN_ID = ChainId.ICE_ARCTIC
-const WICY = _WICY[ChainId.ICE_ARCTIC]
+const WICZ = _WICZ[ChainId.ICE_ARCTIC]
 const DECIMAL_PERMUTATIONS: [number, number, number][] = [
   [0, 0, 0],
   [0, 9, 18],
@@ -47,7 +47,7 @@ describe('entities', () => {
           ),
           new Pair(
             new TokenAmount(tokens[2], decimalize(1, tokens[2].decimals)),
-            new TokenAmount(WICY, decimalize(1234, WICY.decimals)),
+            new TokenAmount(WICZ, decimalize(1234, WICZ.decimals)),
             CHAIN_ID
           )
         ]
@@ -57,9 +57,9 @@ describe('entities', () => {
       it('Route', () => {
         route = new Route(pairs, tokens[0])
         expect(route.pairs).toEqual(pairs)
-        expect(route.path).toEqual(tokens.concat([WICY]))
+        expect(route.path).toEqual(tokens.concat([WICZ]))
         expect(route.input).toEqual(tokens[0])
-        expect(route.output).toEqual(WICY)
+        expect(route.output).toEqual(WICZ)
       })
 
       it('Price:Route.midPrice', () => {
@@ -108,14 +108,14 @@ describe('entities', () => {
             [
               new Pair(
                 new TokenAmount(tokens[1], decimalize(5, tokens[1].decimals)),
-                new TokenAmount(WICY, decimalize(10, WICY.decimals)),
+                new TokenAmount(WICZ, decimalize(10, WICZ.decimals)),
                 CHAIN_ID
               )
             ],
             tokens[1]
           )
           const inputAmount = new TokenAmount(tokens[1], decimalize(1, tokens[1].decimals))
-          const expectedOutputAmount = new TokenAmount(WICY, '1662497915624478906')
+          const expectedOutputAmount = new TokenAmount(WICZ, '1662497915624478906')
           const trade = new Trade(route, inputAmount, TradeType.EXACT_INPUT)
           expect(trade.route).toEqual(route)
           expect(trade.tradeType).toEqual(TradeType.EXACT_INPUT)
@@ -134,7 +134,7 @@ describe('entities', () => {
         })
 
         it('TradeType.EXACT_OUTPUT', () => {
-          const outputAmount = new TokenAmount(WICY, '1662497915624478906')
+          const outputAmount = new TokenAmount(WICZ, '1662497915624478906')
           const expectedInputAmount = new TokenAmount(tokens[1], decimalize(1, tokens[1].decimals))
           const trade = new Trade(route, outputAmount, TradeType.EXACT_OUTPUT)
           expect(trade.route).toEqual(route)
@@ -160,8 +160,8 @@ describe('entities', () => {
                 new Pair(
                   new TokenAmount(tokens[1], decimalize(1, tokens[1].decimals)),
                   new TokenAmount(
-                    WICY,
-                    decimalize(10, WICY.decimals) +
+                    WICZ,
+                    decimalize(10, WICZ.decimals) +
                       (tokens[1].decimals === 9 ? BigInt('30090280812437312') : BigInt('30090270812437322'))
                   ),
                   CHAIN_ID
@@ -180,7 +180,7 @@ describe('entities', () => {
       })
 
       it('TokenAmount', () => {
-        const amount = new TokenAmount(WICY, '1234567000000000000000')
+        const amount = new TokenAmount(WICZ, '1234567000000000000000')
         expect(amount.toExact()).toEqual('1234.567')
         expect(amount.toExact({ groupSeparator: ',' })).toEqual('1,234.567')
       })
