@@ -117,7 +117,7 @@ export const ICE_ARCTIC: Chain = {
   },
   blockExplorerUrls: ['https://arctic-blockscout.icenetwork.io']
 }
-   
+
 export enum ChainId {
   ARCTIC = 552,
   ICE = 550
@@ -125,5 +125,5 @@ export enum ChainId {
 
 export const CHAINS: { [chainId in ChainId ]: Chain } = {
   [ChainId.ARCTIC]: ICE_ARCTIC,
-  [ChainId.ICE]: ICE_MAINNET,
+  [ChainId.ICE]: ICE_MAINNET
 }
