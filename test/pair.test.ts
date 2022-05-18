@@ -16,7 +16,7 @@ describe('Pair', () => {
   describe('#getAddress', () => {
     it('returns the correct address', () => {
       //expect(Pair.getAddress(DAS, CON)).toEqual('0xAE461cA67B15dc8dc81CE7615e0320dA1A9aB8D5')
-      expect(Pair.getAddress(DAS, CON, ChainId.ICE_MAINNET)).toEqual('0xb7B78BCdFB70957541AcA6f9fC123A31b53896d7')
+      expect(Pair.getAddress(DAS, CON, ChainId.ICE_MAINNET)).toEqual('0x776C83B7bB83C42047C38291558DAc772a55274F')
     })
   })
 
