@@ -6,8 +6,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
-    "dist/**/*",
-    "README.md"
+    "dist"
   ],
   "repository": "https://github.com/EverestSwap/sdk",
   "keywords": [
@@ -20,8 +19,6 @@
   ],
   "module": "dist/everestswap-sdk.esm.js",
   "scripts": {
-    "prepare": "tsdx build",
-    "install": "tsdx build",
     "lint": "tsdx lint src",
     "build": "tsdx build",
     "start": "tsdx watch",
