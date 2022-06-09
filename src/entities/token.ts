@@ -65,5 +65,6 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
 // TODO: add mainnet address
 export const WICZ = {
   [ChainId.ICE_ARCTIC]: new Token(ChainId.ICE_ARCTIC, contractAddresses.ICE_ARCTIC.WICZ, 18, 'WICZ', 'Wrapped ICZ'),
-  [ChainId.ICE_MAINNET]: new Token(ChainId.ICE_MAINNET, contractAddresses.ICE_MAINNET.WICZ, 18, 'WICZ', 'Wrapped ICZ')
+  [ChainId.ICE_SNOW]: new Token(ChainId.ICE_SNOW, contractAddresses.ICE_SNOW.WICZ, 18, 'WICZ', 'Wrapped ICZ'),
+  [ChainId.ICE_MAINNET]: new Token(ChainId.ICE_MAINNET, contractAddresses.ICE_MAINNET.WICZ, 18, 'WICY', 'Wrapped ICY')
 }

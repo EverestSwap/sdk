@@ -67,10 +67,35 @@ export const ETHEREUM_MAINNET: Chain = {
   blockExplorerUrls: ['https://etherscan.io']
 }
 
-// TODO: add RPC and explorer uri when mainnet is live
+// TODO: add explorer uri when SNOW and/or ICE is live
 export const ICE_MAINNET: Chain = {
   id: 'ice_mainnet',
   chain_id: 550,
+  name: 'ICE Network',
+  symbol: 'ICY',
+  token_symbol: 'EVRS',
+  mainnet: true,
+  dex_is_live: false,
+  tracked_by_debank: false,
+  supported_by_gelato: false,
+  rpc_uri: 'https://ice-rpc.icenetwork.io',
+  contracts: {
+    token: contractAddresses.ICE_MAINNET.TOKEN,
+    factory: contractAddresses.ICE_MAINNET.FACTORY,
+    router: contractAddresses.ICE_MAINNET.ROUTER,
+    wrapped_native_token: contractAddresses.ICE_MAINNET.WICZ
+  },
+  nativeCurrency: {
+    name: 'ICY',
+    symbol: 'ICY',
+    decimals: 18
+  },
+  blockExplorerUrls: []
+}
+
+export const ICE_SNOW: Chain = {
+  id: 'ice_snow',
+  chain_id: 551,
   name: 'ICE Network',
   symbol: 'ICZ',
   token_symbol: 'EVRS',
@@ -78,7 +103,7 @@ export const ICE_MAINNET: Chain = {
   dex_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
-  rpc_uri: '',
+  rpc_uri: 'https://snow-rpc.icenetwork.io',
   contracts: {
     token: contractAddresses.ICE_MAINNET.TOKEN,
     factory: contractAddresses.ICE_MAINNET.FACTORY,
@@ -120,10 +145,12 @@ export const ICE_ARCTIC: Chain = {
 
 export enum ChainId {
   ARCTIC = 552,
+  SNOW = 551,
   ICE = 550
 }
 
 export const CHAINS: { [chainId in ChainId ]: Chain } = {
   [ChainId.ARCTIC]: ICE_ARCTIC,
+  [ChainId.SNOW]: ICE_SNOW,
   [ChainId.ICE]: ICE_MAINNET
 }

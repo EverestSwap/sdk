@@ -19,7 +19,8 @@ export class Currency {
 
   public static readonly CURRENCY = {
     [ChainId.ICE_ARCTIC]: new Currency(18, 'ICZ', 'ICZ'),
-    [ChainId.ICE_MAINNET]: new Currency(18, 'ICZ', 'ICZ')
+    [ChainId.ICE_SNOW]: new Currency(18, 'ICZ', 'ICZ'),
+    [ChainId.ICE_MAINNET]: new Currency(18, 'ICY', 'ICY')
   }
 
   /**
