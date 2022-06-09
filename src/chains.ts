@@ -149,7 +149,7 @@ export enum ChainId {
   ICE = 550
 }
 
-export const CHAINS: { [chainId in ChainId ]: Chain } = {
+export const CHAINS: { [chainId in ChainId]: Chain } = {
   [ChainId.ARCTIC]: ICE_ARCTIC,
   [ChainId.SNOW]: ICE_SNOW,
   [ChainId.ICE]: ICE_MAINNET
