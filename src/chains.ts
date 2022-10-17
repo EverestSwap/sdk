@@ -95,7 +95,7 @@ export const ICE_MAINNET: Chain = {
 
 export const ICE_SNOW: Chain = {
   id: 'ice_snow',
-  chain_id: 551,
+  chain_id: 552,
   name: 'ICE Network',
   symbol: 'ICZ',
   token_symbol: 'EVRS',
@@ -120,7 +120,7 @@ export const ICE_SNOW: Chain = {
 
 export const ICE_ARCTIC: Chain = {
   id: 'ice_arctic',
-  chain_id: 552,
+  chain_id: 553,
   name: 'Arctic Testnet',
   symbol: 'ICZ',
   token_symbol: 'EVRS',
@@ -144,8 +144,8 @@ export const ICE_ARCTIC: Chain = {
 }
 
 export enum ChainId {
-  ARCTIC = 552,
-  SNOW = 551,
+  ARCTIC = 553,
+  SNOW = 552,
   ICE = 550
 }
 
