@@ -103,7 +103,7 @@ export const ICE_SNOW: Chain = {
   dex_is_live: false,
   tracked_by_debank: false,
   supported_by_gelato: false,
-  rpc_uri: 'https://snow-rpc.icenetwork.io',
+  rpc_uri: 'https://snow-rpc.icenetwork.io:9933',
   contracts: {
     token: contractAddresses.ICE_MAINNET.TOKEN,
     factory: contractAddresses.ICE_MAINNET.FACTORY,
